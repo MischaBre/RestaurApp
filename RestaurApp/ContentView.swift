@@ -18,6 +18,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
+            VStack {
             List {
                 ForEach(items) { item in
                     NavigationLink {
@@ -38,8 +39,9 @@ struct ContentView: View {
                     }
                 }
             }
+            }
             Text("Select an item")
-        }
+            }
     }
 
     private func addItem() {
