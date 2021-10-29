@@ -17,6 +17,14 @@ class CoreDataManager {
         return persistantContainer.viewContext
     }
     
+    func getRestaurantById(id: NSManagedObjectID) -> Restaurant? {
+        do {
+            return try viewContext.existingObject(with: id) as? Restaurant
+        } catch {
+            return nil
+        }
+    }
+    
     func getAllRestaurants() -> [Restaurant] {
         let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
         
@@ -25,6 +33,11 @@ class CoreDataManager {
         } catch {
             return []
         }
+    }
+    
+    func deleteRestaurant(restaurant: Restaurant) {
+        viewContext.delete(restaurant)
+        save()
     }
     
     func save() {

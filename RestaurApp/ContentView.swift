@@ -9,25 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject private var restaurantVM = RestaurantListViewModel()
+    @StateObject private var restaurantListVM = RestaurantListViewModel()
+    
+    func deleteRestaurant(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let restaurant = restaurantListVM.restaurants[index]
+            restaurantListVM.delete(restaurant)
+        }
+        restaurantListVM.getAllRestaurants()
+    }
     
     var body: some View {
         VStack {
             HStack{
-                TextField("Enter Name", text: $restaurantVM.name)
-                    .padding()
+                TextField("Enter Name", text: $restaurantListVM.name)
                 Button("Save") {
-                    restaurantVM.save()
-                    restaurantVM.getAllRestaurants()
+                    restaurantListVM.save()
+                    restaurantListVM.getAllRestaurants()
                 }
             }
-            List(restaurantVM.restaurants, id: \.id) { restaurant in
-                Text(restaurant.name)
-            }
-            .onAppear(perform: restaurantVM.getAllRestaurants)
+
+            List {
+                ForEach(restaurantListVM.restaurants, id: \.id) { restaurant in
+                    Text(restaurant.name)
+                }.onDelete(perform: deleteRestaurant)
+            }.listStyle(.inset)
             
             Spacer()
         }.padding()
+        .onAppear(perform: restaurantListVM.getAllRestaurants)
     }
 }
 

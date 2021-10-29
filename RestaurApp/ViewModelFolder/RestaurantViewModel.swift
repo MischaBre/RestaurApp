@@ -10,16 +10,21 @@ import CoreData
 
 class RestaurantListViewModel: ObservableObject {
     
-    var name: String = ""
+    @Published var name: String = ""
     @Published var restaurants: [RestaurantViewModel] = []
     
     func getAllRestaurants() {
         restaurants = CoreDataManager.shared.getAllRestaurants().map(RestaurantViewModel.init)
     }
     
+    func delete(_ restaurant: RestaurantViewModel) {
+        let existingRestaurant = CoreDataManager.shared.getRestaurantById(id: restaurant.id)
+        if let existingRestaurant = existingRestaurant {
+            CoreDataManager.shared.deleteRestaurant(restaurant: existingRestaurant)
+        }
+    }
     
     func save() {
-        
         let restaurant = Restaurant(context: CoreDataManager.shared.viewContext)
         restaurant.name = name
         
