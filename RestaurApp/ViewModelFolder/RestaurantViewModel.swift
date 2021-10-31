@@ -11,6 +11,7 @@ import CoreData
 class RestaurantListViewModel: ObservableObject {
     
     @Published var name: String = ""
+    @Published var category: String = ""
     @Published var restaurants: [RestaurantViewModel] = []
     
     func getAllRestaurants() {
@@ -27,6 +28,7 @@ class RestaurantListViewModel: ObservableObject {
     func save() {
         let restaurant = Restaurant(context: CoreDataManager.shared.viewContext)
         restaurant.name = name
+        restaurant.category = category
         
         CoreDataManager.shared.save()
         
@@ -42,5 +44,9 @@ struct RestaurantViewModel {
     
     var name: String {
         return restaurant.name ?? ""
+    }
+    
+    var category: String {
+        return restaurant.category ?? ""
     }
 }

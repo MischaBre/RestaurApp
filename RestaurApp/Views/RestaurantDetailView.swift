@@ -12,6 +12,7 @@ struct RestaurantDetailView: View {
     
     var body: some View {
         Text(restaurant.name)
+        Text(restaurant.category)
     }
 }
 
