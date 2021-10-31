@@ -20,6 +20,8 @@
 		B19291EC272B144B006AAB58 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19291EB272B144A006AAB58 /* CoreDataManager.swift */; };
 		B19291EF272B14BA006AAB58 /* RestaurantDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B19291ED272B14BA006AAB58 /* RestaurantDataModel.xcdatamodeld */; };
 		B19291F2272B1645006AAB58 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19291F1272B1645006AAB58 /* RestaurantViewModel.swift */; };
+		B1939EDF272EFA4C004AC3BB /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1939EDE272EFA4C004AC3BB /* AddView.swift */; };
+		B1939EE1272F038E004AC3BB /* ViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1939EE0272F038E004AC3BB /* ViewObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		B19291EB272B144A006AAB58 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B19291EE272B14BA006AAB58 /* RestaurantDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestaurantDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B19291F1272B1645006AAB58 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		B1939EDE272EFA4C004AC3BB /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		B1939EE0272F038E004AC3BB /* ViewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,16 +110,13 @@
 		B11FD02827200B050056F974 /* RestaurApp */ = {
 			isa = PBXGroup;
 			children = (
+				B1939EDD272EFA1A004AC3BB /* DataManager */,
+				B1939EDC272EFA07004AC3BB /* Views */,
 				B19291F0272B162A006AAB58 /* ViewModelFolder */,
 				B11FD02927200B050056F974 /* RestaurAppApp.swift */,
-				B15C93F3272EC3D200ACC3AA /* RestaurantDetailView.swift */,
-				B11FD02B27200B050056F974 /* ContentView.swift */,
 				B11FD02D27200B060056F974 /* Assets.xcassets */,
 				B11FD03227200B060056F974 /* Persistence.swift */,
 				B11FD02F27200B060056F974 /* Preview Content */,
-				B19291EB272B144A006AAB58 /* CoreDataManager.swift */,
-				B19291ED272B14BA006AAB58 /* RestaurantDataModel.xcdatamodeld */,
-				B15C93F5272EC95700ACC3AA /* RestaurantListView.swift */,
 			);
 			path = RestaurApp;
 			sourceTree = "<group>";
@@ -151,6 +152,27 @@
 				B19291F1272B1645006AAB58 /* RestaurantViewModel.swift */,
 			);
 			path = ViewModelFolder;
+			sourceTree = "<group>";
+		};
+		B1939EDC272EFA07004AC3BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B11FD02B27200B050056F974 /* ContentView.swift */,
+				B15C93F5272EC95700ACC3AA /* RestaurantListView.swift */,
+				B15C93F3272EC3D200ACC3AA /* RestaurantDetailView.swift */,
+				B1939EDE272EFA4C004AC3BB /* AddView.swift */,
+				B1939EE0272F038E004AC3BB /* ViewObject.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1939EDD272EFA1A004AC3BB /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				B19291EB272B144A006AAB58 /* CoreDataManager.swift */,
+				B19291ED272B14BA006AAB58 /* RestaurantDataModel.xcdatamodeld */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,8 +307,10 @@
 			files = (
 				B11FD03327200B060056F974 /* Persistence.swift in Sources */,
 				B15C93F4272EC3D200ACC3AA /* RestaurantDetailView.swift in Sources */,
+				B1939EDF272EFA4C004AC3BB /* AddView.swift in Sources */,
 				B15C93F6272EC95700ACC3AA /* RestaurantListView.swift in Sources */,
 				B19291F2272B1645006AAB58 /* RestaurantViewModel.swift in Sources */,
+				B1939EE1272F038E004AC3BB /* ViewObject.swift in Sources */,
 				B11FD02C27200B050056F974 /* ContentView.swift in Sources */,
 				B19291EC272B144B006AAB58 /* CoreDataManager.swift in Sources */,
 				B19291EF272B14BA006AAB58 /* RestaurantDataModel.xcdatamodeld in Sources */,

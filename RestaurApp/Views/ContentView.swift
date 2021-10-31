@@ -10,16 +10,25 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject private var restaurantListVM = RestaurantListViewModel()
+    @StateObject private var selection = Selection()
     
     var body: some View {
     
-        TabView {
+        TabView(selection: $selection.selection) {
             RestaurantListView()
                 .environmentObject(restaurantListVM)
+                .environmentObject(selection)
                 .tabItem {
                     Label("Menu", systemImage: "list.dash")
                 }
-            
+                .tag(1)
+            AddView()
+                .environmentObject(restaurantListVM)
+                .environmentObject(selection)
+                .tabItem {
+                    Label("Add", systemImage: "plus.square")
+                }
+                .tag(2)
         }.onAppear(perform: restaurantListVM.getAllRestaurants)
     }
 }
