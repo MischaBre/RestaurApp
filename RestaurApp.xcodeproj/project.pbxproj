@@ -22,6 +22,8 @@
 		B19291F2272B1645006AAB58 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19291F1272B1645006AAB58 /* RestaurantViewModel.swift */; };
 		B1939EDF272EFA4C004AC3BB /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1939EDE272EFA4C004AC3BB /* AddView.swift */; };
 		B1939EE1272F038E004AC3BB /* ViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1939EE0272F038E004AC3BB /* ViewObject.swift */; };
+		B1939EE3273086E1004AC3BB /* MapKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1939EE2273086E1004AC3BB /* MapKitView.swift */; };
+		B1939EE727308819004AC3BB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1939EE627308819004AC3BB /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,10 @@
 		B19291F1272B1645006AAB58 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 		B1939EDE272EFA4C004AC3BB /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		B1939EE0272F038E004AC3BB /* ViewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewObject.swift; sourceTree = "<group>"; };
+		B1939EE2273086E1004AC3BB /* MapKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitView.swift; sourceTree = "<group>"; };
+		B1939EE427308819004AC3BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B1939EE627308819004AC3BB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B1939EE82730882E004AC3BB /* RestaurApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestaurApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1939EE727308819004AC3BB /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +101,7 @@
 				B11FD03E27200B060056F974 /* RestaurAppTests */,
 				B11FD04827200B060056F974 /* RestaurAppUITests */,
 				B11FD02727200B050056F974 /* Products */,
+				B1939EE527308819004AC3BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +118,8 @@
 		B11FD02827200B050056F974 /* RestaurApp */ = {
 			isa = PBXGroup;
 			children = (
+				B1939EE82730882E004AC3BB /* RestaurApp.entitlements */,
+				B1939EE427308819004AC3BB /* Info.plist */,
 				B1939EDD272EFA1A004AC3BB /* DataManager */,
 				B1939EDC272EFA07004AC3BB /* Views */,
 				B19291F0272B162A006AAB58 /* ViewModelFolder */,
@@ -159,8 +169,9 @@
 			children = (
 				B11FD02B27200B050056F974 /* ContentView.swift */,
 				B15C93F5272EC95700ACC3AA /* RestaurantListView.swift */,
-				B15C93F3272EC3D200ACC3AA /* RestaurantDetailView.swift */,
 				B1939EDE272EFA4C004AC3BB /* AddView.swift */,
+				B1939EE2273086E1004AC3BB /* MapKitView.swift */,
+				B15C93F3272EC3D200ACC3AA /* RestaurantDetailView.swift */,
 				B1939EE0272F038E004AC3BB /* ViewObject.swift */,
 			);
 			path = Views;
@@ -173,6 +184,14 @@
 				B19291ED272B14BA006AAB58 /* RestaurantDataModel.xcdatamodeld */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		B1939EE527308819004AC3BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1939EE627308819004AC3BB /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +327,7 @@
 				B11FD03327200B060056F974 /* Persistence.swift in Sources */,
 				B15C93F4272EC3D200ACC3AA /* RestaurantDetailView.swift in Sources */,
 				B1939EDF272EFA4C004AC3BB /* AddView.swift in Sources */,
+				B1939EE3273086E1004AC3BB /* MapKitView.swift in Sources */,
 				B15C93F6272EC95700ACC3AA /* RestaurantListView.swift in Sources */,
 				B19291F2272B1645006AAB58 /* RestaurantViewModel.swift in Sources */,
 				B1939EE1272F038E004AC3BB /* ViewObject.swift in Sources */,
@@ -472,18 +492,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RestaurApp/RestaurApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RestaurApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 558QD449B9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RestaurApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,18 +524,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RestaurApp/RestaurApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RestaurApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 558QD449B9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RestaurApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

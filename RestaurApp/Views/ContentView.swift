@@ -22,13 +22,20 @@ struct ContentView: View {
                     Label("Menu", systemImage: "list.dash")
                 }
                 .tag(1)
+//            MapView()
+//                .environmentObject(restaurantListVM)
+//                .environmentObject(selection)
+//                .tabItem {
+//                    Label("Map", systemImage: "map")
+//                }
+//                .tag(2)
             AddView()
                 .environmentObject(restaurantListVM)
                 .environmentObject(selection)
                 .tabItem {
                     Label("Add", systemImage: "plus.square")
                 }
-                .tag(2)
+                .tag(3)
         }.onAppear(perform: restaurantListVM.getAllRestaurants)
     }
 }
