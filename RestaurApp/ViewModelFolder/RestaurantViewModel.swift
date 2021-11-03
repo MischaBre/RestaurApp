@@ -9,10 +9,12 @@ import Foundation
 import CoreData
 
 class RestaurantListViewModel: ObservableObject {
-    
+
     @Published var name: String = ""
     @Published var category: String = ""
     @Published var restaurants: [RestaurantViewModel] = []
+    @Published var lon: Double = 0.0
+    @Published var lat: Double = 0.0
     
     func getAllRestaurants() {
         restaurants = CoreDataManager.shared.getAllRestaurants().map(RestaurantViewModel.init)
@@ -29,6 +31,8 @@ class RestaurantListViewModel: ObservableObject {
         let restaurant = Restaurant(context: CoreDataManager.shared.viewContext)
         restaurant.name = name
         restaurant.category = category
+        restaurant.lon = lon
+        restaurant.lat = lat
         
         CoreDataManager.shared.save()
         
@@ -48,5 +52,13 @@ struct RestaurantViewModel {
     
     var category: String {
         return restaurant.category ?? ""
+    }
+    
+    var lon: Double {
+        return restaurant.lon
+    }
+    
+    var lat: Double {
+        return restaurant.lat
     }
 }
