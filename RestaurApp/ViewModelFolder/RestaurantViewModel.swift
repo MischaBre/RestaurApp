@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import MapKit
 
 class RestaurantListViewModel: ObservableObject {
 
@@ -15,9 +16,17 @@ class RestaurantListViewModel: ObservableObject {
     @Published var restaurants: [RestaurantViewModel] = []
     @Published var lon: Double = 0.0
     @Published var lat: Double = 0.0
+    @Published var pins: [RestaurantPin] = []
     
     func getAllRestaurants() {
         restaurants = CoreDataManager.shared.getAllRestaurants().map(RestaurantViewModel.init)
+    }
+    
+    func makePins() {
+        pins.removeAll()
+        restaurants.forEach { restaurant in
+            pins.append(RestaurantPin(name: restaurant.name, coordinate: CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lon), restaurant: restaurant))
+        }
     }
     
     func delete(_ restaurant: RestaurantViewModel) {
@@ -61,4 +70,11 @@ struct RestaurantViewModel {
     var lat: Double {
         return restaurant.lat
     }
+}
+
+struct RestaurantPin: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+    let restaurant: RestaurantViewModel
 }

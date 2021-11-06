@@ -40,7 +40,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func getRegion() -> MKCoordinateRegion {
-        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         return region
     }
     
@@ -49,13 +49,3 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
 }
 
-class LocationViewModel: ObservableObject {
-    @Published var region = LocationManager.shared.getRegion()
-    
-    //@Published var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 38.898150, longitude: -77.034340), span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7))
-    
-    func getRegion() {
-        region = LocationManager.shared.getRegion()
-        print(region)
-    }
-}

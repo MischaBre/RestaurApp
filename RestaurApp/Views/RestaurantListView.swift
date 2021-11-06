@@ -24,7 +24,9 @@ struct RestaurantListView: View {
             List {
                 ForEach (restaurantListVM.restaurants, id: \.id) { restaurant in
                     NavigationLink(
-                        destination: RestaurantDetailView(restaurant: restaurant, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))),
+                        destination: RestaurantDetailView(
+                            restaurant: restaurant,
+                            region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))),
                         label: {
                             Text(restaurant.name)
                         })

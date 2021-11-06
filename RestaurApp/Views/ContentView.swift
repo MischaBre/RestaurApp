@@ -26,10 +26,10 @@ struct ContentView: View {
                 .tag(1)
             MapView(region: locationVM.region)
                 .environmentObject(restaurantListVM)
-                .environmentObject(selection)
                 .environmentObject(locationVM)
                 .onAppear {
                     locationVM.getRegion()
+                    restaurantListVM.makePins()
                 }
                 .tabItem {
                     Label("Map", systemImage: "map")
