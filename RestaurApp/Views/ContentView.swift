@@ -24,13 +24,9 @@ struct ContentView: View {
                     Label("Menu", systemImage: "list.dash")
                 }
                 .tag(1)
-            MapView(region: locationVM.region)
+            MapView(region: locationVM.region, resetMapView: true)
                 .environmentObject(restaurantListVM)
                 .environmentObject(locationVM)
-                .onAppear {
-                    locationVM.getRegion()
-                    restaurantListVM.makePins()
-                }
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }
@@ -39,9 +35,6 @@ struct ContentView: View {
                 .environmentObject(restaurantListVM)
                 .environmentObject(selection)
                 .environmentObject(locationVM)
-                .onAppear {
-                    locationVM.getRegion()
-                }
                 .tabItem {
                     Label("Add", systemImage: "plus.square")
                 }

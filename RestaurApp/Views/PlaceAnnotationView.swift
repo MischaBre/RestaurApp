@@ -15,6 +15,7 @@ struct PlaceAnnotationView: View {
   
     var body: some View {
         VStack(spacing: 0) {
+            
             Text(title)
                 .font(.callout)
                 .padding(3)

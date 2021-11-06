@@ -24,7 +24,6 @@
 		B19291F2272B1645006AAB58 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19291F1272B1645006AAB58 /* RestaurantViewModel.swift */; };
 		B1939EDF272EFA4C004AC3BB /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1939EDE272EFA4C004AC3BB /* AddView.swift */; };
 		B1939EE1272F038E004AC3BB /* ViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1939EE0272F038E004AC3BB /* ViewObject.swift */; };
-		B1939EE3273086E1004AC3BB /* MapKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1939EE2273086E1004AC3BB /* MapKitView.swift */; };
 		B1939EE727308819004AC3BB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1939EE627308819004AC3BB /* MapKit.framework */; };
 		B1CC14C327369DFC005E3656 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC14C227369DFC005E3656 /* LocationViewModel.swift */; };
 		B1CC14C52736AFE4005E3656 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC14C42736AFE4005E3656 /* PlaceAnnotationView.swift */; };
@@ -68,7 +67,6 @@
 		B19291F1272B1645006AAB58 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 		B1939EDE272EFA4C004AC3BB /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		B1939EE0272F038E004AC3BB /* ViewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewObject.swift; sourceTree = "<group>"; };
-		B1939EE2273086E1004AC3BB /* MapKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitView.swift; sourceTree = "<group>"; };
 		B1939EE427308819004AC3BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B1939EE627308819004AC3BB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B1939EE82730882E004AC3BB /* RestaurApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RestaurApp.entitlements; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 				B13A1FA92730948700331661 /* MapView.swift */,
 				B1CC14C42736AFE4005E3656 /* PlaceAnnotationView.swift */,
 				B1939EDE272EFA4C004AC3BB /* AddView.swift */,
-				B1939EE2273086E1004AC3BB /* MapKitView.swift */,
 				B1939EE0272F038E004AC3BB /* ViewObject.swift */,
 			);
 			path = Views;
@@ -340,7 +337,6 @@
 				B13A1FAA2730948700331661 /* MapView.swift in Sources */,
 				B15C93F4272EC3D200ACC3AA /* RestaurantDetailView.swift in Sources */,
 				B1939EDF272EFA4C004AC3BB /* AddView.swift in Sources */,
-				B1939EE3273086E1004AC3BB /* MapKitView.swift in Sources */,
 				B15C93F6272EC95700ACC3AA /* RestaurantListView.swift in Sources */,
 				B19291F2272B1645006AAB58 /* RestaurantViewModel.swift in Sources */,
 				B1939EE1272F038E004AC3BB /* ViewObject.swift in Sources */,

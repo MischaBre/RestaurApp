@@ -23,13 +23,13 @@ struct RestaurantListView: View {
         NavigationView {
             List {
                 ForEach (restaurantListVM.restaurants, id: \.id) { restaurant in
-                    NavigationLink(
-                        destination: RestaurantDetailView(
+                    NavigationLink {
+                        RestaurantDetailView(
                             restaurant: restaurant,
-                            region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))),
-                        label: {
+                            region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)))
+                        } label: {
                             Text(restaurant.name)
-                        })
+                        }
                 }.onDelete(perform: deleteRestaurant)
             }.onAppear(perform: restaurantListVM.getAllRestaurants)
         }
