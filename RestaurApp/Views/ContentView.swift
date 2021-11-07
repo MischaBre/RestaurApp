@@ -13,7 +13,7 @@ struct ContentView: View {
     @StateObject private var restaurantListVM = RestaurantListViewModel()
     @StateObject private var selection = Selection()
     @StateObject private var locationVM = LocationViewModel()
-    
+
     var body: some View {
     
         TabView(selection: $selection.selection) {
@@ -21,7 +21,7 @@ struct ContentView: View {
                 .environmentObject(restaurantListVM)
                 .environmentObject(selection)
                 .tabItem {
-                    Label("Menu", systemImage: "list.dash")
+                    Label("List", systemImage: "list.dash")
                 }
                 .tag(1)
             MapView(region: locationVM.region, resetMapView: true)
@@ -29,7 +29,9 @@ struct ContentView: View {
                 .environmentObject(locationVM)
                 .tabItem {
                     Label("Map", systemImage: "map")
+                        
                 }
+
                 .tag(2)
             AddView(region: locationVM.region)
                 .environmentObject(restaurantListVM)
@@ -39,9 +41,14 @@ struct ContentView: View {
                     Label("Add", systemImage: "plus.square")
                 }
                 .tag(3)
-        }.onAppear {
-            restaurantListVM.getAllRestaurants()
         }
+        .accentColor(Color(.red))
+        .onAppear {
+            restaurantListVM.getAllRestaurants()
+            restaurantListVM.makePins()
+            UITabBar.appearance().barTintColor = .white
+        }
+        
     }
 }
 

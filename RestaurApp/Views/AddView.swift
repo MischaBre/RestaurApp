@@ -18,7 +18,10 @@ struct AddView: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .center, spacing: 10) {
+            Text("Neues Restaurant")
+                .multilineTextAlignment(.center)
+            
             HStack {
                 Button("Abbrechen") {
                     restaurantListVM.name = ""
@@ -27,7 +30,7 @@ struct AddView: View {
                 .foregroundColor(.red)
                 .padding()
                 Spacer()
-                Button("Save") {
+                Button("Speichern") {
                     restaurantListVM.lat = $region.center.latitude.wrappedValue
                     restaurantListVM.lon = $region.center.longitude.wrappedValue
                     restaurantListVM.save()
@@ -41,8 +44,14 @@ struct AddView: View {
             
             TextField("Name", text: $restaurantListVM.name)
                 .textFieldStyle(.roundedBorder)
+            
             TextField("Kategorie", text: $restaurantListVM.category)
                 .textFieldStyle(.roundedBorder)
+            
+            HStack {
+                Text("Ort des Restaurants")
+                Spacer()
+            }
             
             ZStack {
                 
@@ -51,12 +60,13 @@ struct AddView: View {
                         locationVM.getRegion()
                         region = locationVM.region
                     }
-                    .frame(height: 300)
+                    .frame(height: 250)
                     .overlay(
                         Image(systemName: "circle")
                     )
             }
             Spacer()
-        }.padding()
+        }
+        .padding()
     }
 }

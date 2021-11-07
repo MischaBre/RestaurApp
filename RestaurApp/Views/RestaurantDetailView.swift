@@ -25,7 +25,8 @@ struct RestaurantDetailView: View {
             .frame(height: 300)
         Text(String(restaurant.lon))
         Text(String(restaurant.lat))
-    
+            .navigationBarTitle("Infos", displayMode: .inline)
+            
     }
 }
 

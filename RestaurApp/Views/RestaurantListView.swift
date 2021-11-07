@@ -10,6 +10,7 @@ import MapKit
 
 struct RestaurantListView: View {
     @EnvironmentObject var restaurantListVM: RestaurantListViewModel
+    @State private var searchText: String = ""
     
     func deleteRestaurant(at offsets: IndexSet) {
         offsets.forEach { index in
@@ -19,19 +20,29 @@ struct RestaurantListView: View {
         restaurantListVM.getAllRestaurants()
     }
     
+    init() {
+        UITableView.appearance().backgroundColor = UIColor(Color.clear)
+    }
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach (restaurantListVM.restaurants, id: \.id) { restaurant in
+                ForEach (searchText == "" ? restaurantListVM.restaurants: restaurantListVM.restaurants.filter { $0.name.contains(searchText) || $0.category.contains(searchText)}, id: \.id) { restaurant in
                     NavigationLink {
                         RestaurantDetailView(
                             restaurant: restaurant,
                             region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)))
-                        } label: {
-                            Text(restaurant.name)
-                        }
-                }.onDelete(perform: deleteRestaurant)
-            }.onAppear(perform: restaurantListVM.getAllRestaurants)
+                    }
+                    label: {
+                        RestaurantListItemView(name: restaurant.name, category: restaurant.category)
+                    }
+                }
+                .onDelete(perform: deleteRestaurant)
+            }
+            .background(Color.white)
+            .navigationBarTitle("Meine Restaurants")
+            .onAppear(perform: restaurantListVM.getAllRestaurants)
+            .searchable(text: $searchText)
         }
     }
     

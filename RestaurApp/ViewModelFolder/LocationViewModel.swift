@@ -14,6 +14,6 @@ class LocationViewModel: ObservableObject {
     
     func getRegion() {
         region = LocationManager.shared.getRegion()
-        print(region)
+        //print(region)
     }
 }

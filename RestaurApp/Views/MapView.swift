@@ -39,10 +39,14 @@ struct MapView: View {
                             resetMapView = false
                         }
                         restaurantListVM.makePins()
+                        print("MapView")
+
                     }
                 Toggle("Show Names", isOn: $showTitle)
                     .padding()
             }
+            .navigationBarTitle("Karte")
+            .padding()
         }
     }
 }
