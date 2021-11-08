@@ -57,6 +57,7 @@ struct AddView: View {
                             locationVM.getRegion()
                             region = locationVM.region
                         }
+                        .cornerRadius(10)
                         .frame(height: 250)
                         .overlay(
                             Image(systemName: "circle")

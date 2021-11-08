@@ -25,13 +25,14 @@ struct MapView: View {
                     MapAnnotation(coordinate: annotation.coordinate) {
                         NavigationLink {
                             RestaurantDetailView(
-                                restaurant: annotation.restaurant,
+                                restaurantVM: annotation.restaurant,
                                 region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: annotation.restaurant.lat, longitude: annotation.restaurant.lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)))
                         } label: {
                             PlaceAnnotationView(title: annotation.name, showTitle: $showTitle)
                         }
                     }
                 }
+                    .cornerRadius(10)
                     .onAppear {
                         if resetMapView {
                             locationVM.getRegion()
@@ -39,10 +40,9 @@ struct MapView: View {
                             resetMapView = false
                         }
                         restaurantListVM.makePins()
-                        print("MapView")
 
                     }
-                Toggle("Show Names", isOn: $showTitle)
+                Toggle("Namen zeigen", isOn: $showTitle)
                     .padding()
             }
             .navigationBarTitle("Karte")

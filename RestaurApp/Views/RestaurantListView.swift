@@ -30,7 +30,7 @@ struct RestaurantListView: View {
                 ForEach (searchText == "" ? restaurantListVM.restaurants: restaurantListVM.restaurants.filter { $0.name.contains(searchText) || $0.category.contains(searchText)}, id: \.id) { restaurant in
                     NavigationLink {
                         RestaurantDetailView(
-                            restaurant: restaurant,
+                            restaurantVM: restaurant,
                             region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lon), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)))
                     }
                     label: {

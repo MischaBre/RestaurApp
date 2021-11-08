@@ -10,23 +10,37 @@ import MapKit
 
 struct RestaurantDetailView: View {
     
-    let restaurant: RestaurantViewModel
+    let restaurantVM: RestaurantViewModel
     @State var region : MKCoordinateRegion
     
     var body: some View {
     
-        let annotations: [RestaurantPin] = [RestaurantPin(name: restaurant.name, coordinate: CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lon), restaurant: restaurant)]
+        let annotations: [RestaurantPin] = [RestaurantPin(name: restaurantVM.name, coordinate: CLLocationCoordinate2D(latitude: restaurantVM.lat, longitude: restaurantVM.lon), restaurant: restaurantVM)]
         
-        Text(restaurant.name)
-        Text(restaurant.category)
-        Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: annotations) {
-            MapMarker(coordinate: $0.coordinate)
-        }
-            .frame(height: 300)
-        Text(String(restaurant.lon))
-        Text(String(restaurant.lat))
-            .navigationBarTitle("Infos", displayMode: .inline)
-            
+        VStack(alignment: .leading, spacing: 10) {
+            ZStack(alignment: .bottomLeading) {
+                Image("Test")
+                    .resizable()
+                    .frame(height: 250, alignment: .center)
+                    .cornerRadius(20)
+                Text(restaurantVM.name)
+                    .font(.largeTitle)
+                    .padding(3)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(Color.white)
+                            .opacity(0.6)
+                    ).padding()
+            }
+            Text("Kategorien: \(restaurantVM.category)")
+                .frame(height: 50, alignment: .topLeading)
+            Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: annotations) {
+                MapMarker(coordinate: $0.coordinate)
+            }
+                .cornerRadius(20)
+                .frame(height: 250)
+                .navigationBarTitle("Infos", displayMode: .inline)
+        }.padding()
+        Spacer()
     }
 }
-

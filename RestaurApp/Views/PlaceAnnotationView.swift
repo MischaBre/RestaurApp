@@ -18,9 +18,9 @@ struct PlaceAnnotationView: View {
             
             Text(title)
                 .font(.callout)
-                .padding(3)
-                .background(Color(.white))
-                .cornerRadius(5)
+                .padding(5)
+                .background(Color(.white).opacity(0.7))
+                .cornerRadius(10)
                 .offset(x: 0, y: -35)
                 .opacity(showTitle ? 1 : 0)
         
